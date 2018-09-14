@@ -40,6 +40,9 @@ namespace Excercise;
     $summa->addEmployee($mark);
     printParagraph( implode("<br>", $summa->getAllEmployees()) );
 
+    printTitle("Printing employees text list");
+    printParagraph( "<pre>" . $summa->getAllEmployeesTextList() . "</pre>" );
+
     printTitle("Changing id and searching the employee");
     $id = 99;
     $mark->id = $id;

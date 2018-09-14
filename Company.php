@@ -8,10 +8,10 @@ class Company
     private $name;
     private $employees_list;
 
-    public function __construct($n)
+    public function __construct($name)
     {
         $this->employees_list = [];
-        $this->name = $n;
+        $this->name = $name;
         $this->id = $this->generateId();
     }
 
@@ -24,10 +24,10 @@ class Company
     }
 
     /**
-     * Returns an instance of Employee with the searched id
+     * Returns an instance of Employee with the searched id or null if the company have no employees
      * 
      * @param int|string $id
-     * @return Employee 
+     * @return Employee|null
      */
     public function getEmployee($id)
     {
@@ -42,7 +42,7 @@ class Company
     /**
      * Returns the list of all employees in the company
      * 
-     * @return string The list of all employees
+     * @return array The list of all employees
      */
     public function getAllEmployees()
     {
@@ -54,11 +54,22 @@ class Company
     }
 
     /**
+     * @return string The text list of all employees
+     */
+    public function getAllEmployeesTextList()
+    {
+        return implode(PHP_EOL, $this->getAllEmployees());
+    }
+
+    /**
      * Returns the average age of all company employees
-     * @return double Average age of all employees
+     * @return double Average age of all employees or zero if the company have no employees
      */
     public function getAverageAge()
     {
+        if (empty($this->employees_list)) {
+            return 0;
+        }
         $sum = array_reduce($this->employees_list, function($carry, Employee $employee) {
                 return $carry + $employee->age;
             }

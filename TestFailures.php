@@ -52,3 +52,11 @@ use Exception;
     catch (Exception $e) {
         printParagraph($e->getMessage());
     }
+
+    printTitle("Checking the results when company has no employees");
+    $no_company = new Company("");
+    printParagraph( "Get all employees is an empty array: " );
+    var_dump($no_company->getAllEmployees());
+    printParagraph( "The employees text list is empty too: " );
+    var_dump($no_company->getAllEmployeesTextList());
+    printParagraph( "Average age is " . $no_company->getAverageAge() . " because has no employees.");
