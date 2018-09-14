@@ -1,4 +1,4 @@
-#Ejercicio:
+# Ejercicio:
  
 Crear las clases necesarias para administrar los Empleados de una Empresa. Cada empleado puede ser de distinto tipo como ser, Programador, Diseñador.
 
@@ -26,6 +26,6 @@ En **Empresa**, tengo que poder:
     * obtener un listado de todos los **Empleados**
     * buscar por **Id** y obtener un **Empleado**
     * obtener el promedio de edad de los empleados
-    
+
 Nota: Demostrar conocimientos en el manejo de objetos, getters, setters, listados y herencia. 
 

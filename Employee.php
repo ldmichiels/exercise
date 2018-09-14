@@ -1,5 +1,7 @@
 <?php
 
+namespace Excercise;
+
 abstract class Employee
 {
     protected $id;
@@ -17,6 +19,7 @@ abstract class Employee
         $this->name = $name;
         $this->surname = $surname;
         $this->age = $age;
+        $this->id = $this->generateId();
     }
     
     public function __get($prop)
@@ -30,4 +33,13 @@ abstract class Employee
     }
 
     public abstract function __tostring();
+
+    /**
+     * Returns an unique id
+     */
+    private function generateId()
+    {
+        // This method would get an unique id from database sequence, for example
+        return rand(1, 100);
+    }
 }

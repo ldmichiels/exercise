@@ -1,5 +1,8 @@
 <?php
 
+namespace Excercise;
+use Exception;
+
 class Developer extends Employee
 {
     const PHP = "PHP";
@@ -7,7 +10,7 @@ class Developer extends Employee
     const PYTHON = "Python";
     const LANGUAGES = [self::PHP, self::NET, self::PYTHON];
 
-    private $language;
+    protected $language;
 
     public function __construct($name, $surname, $age, $lang)
     {
@@ -22,7 +25,7 @@ class Developer extends Employee
      * @return string The developer data
      */
     public function __toString() {
-        return "";
+        return __CLASS__ . " #$this->id: $this->surname, $this->name ($this->age) - $this->language";
     }
     
 }
